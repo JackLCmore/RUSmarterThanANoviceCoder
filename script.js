@@ -1,25 +1,91 @@
 //variable declaritions
-var timeLeft = "";
-var userAnswer = "";
-var Q1 = [];
-var Q2 = [];
-var Q3 = [];
-var Q4 = [];
-var Q5 = [];
-var Q6 = [];
-var Q7 = [];
-var Q8 = [];
-var Q9 = [];
-var Q10 = [];
+var Q1 = {
+    answer1:"1",
+    answer2:"2",
+    answer3:"3",
+    answer4:"4"
+};
+var Q2 = {
+    answer1:"",
+    answer2:"",
+    answer3:"",
+    answer4:""
+}
+var Q3 = {
+    answer1:"",
+    answer2:"",
+    answer3:"",
+    answer4:""
+}
+var Q4 = {
+    answer1:"",
+    answer2:"",
+    answer3:"",
+    answer4:""
+}
+var Q5 = {
+    answer1:"",
+    answer2:"",
+    answer3:"",
+    answer4:""
+}
+var Q6 = {
+    answer1:"",
+    answer2:"",
+    answer3:"",
+    answer4:""
+}
+var Q7 = {
+    answer1:"",
+    answer2:"",
+    answer3:"",
+    answer4:""
+}
+var Q8 = {
+    answer1:"",
+    answer2:"",
+    answer3:"",
+    answer4:""
+}
+var Q9 = {
+    answer1:"",
+    answer2:"",
+    answer3:"",
+    answer4:""
+}
+var Q10 = {
+    answer1:"",
+    answer2:"",
+    answer3:"",
+    answer4:""
+};
     //timeRemaining
 //querySelectors
-var button = document.querySelector("#button");
-var questionBlock = document.querySelector();
-var timer = document.querySelector();
-var highScors = document.querySelector();
+var startButton = document.querySelector("#button");
+var answerA = document.querySelector("#answer1");
+var answerB = document.querySelector("#answer2");
+var answerC = document.querySelector("#answer3");
+var answerD = document.querySelector("#answer4");
+var questionBlock = document.querySelector("#question");
+var timer = document.querySelector("#timer");
+var highScores = document.querySelector("#high score")
+function scoreDisplay(){
+    alert("Your final score is: " + highScores);
+}
+function playAgain() {
+    if(confirm("Do you want to play again?")){
+        startGame();
+    }
+    else{
+        return;
+    }
+}
 //function to start the game
 function startGame(){
+    timer.textContent = "90"
+
     //listen for button start
+
     //start timer in intervals of 1000 ms
 };
 //first question displays and corresponding answers
@@ -37,8 +103,17 @@ function startGame(){
 //end game
 function endGame(){
     //stop timer
+    if (timeLeft !== 0){
+
+    }
     //prompt for their initials
     //save score into high score
     //clear time
+    scoreDisplay();
+    playAgain();
 }
-button.addEventListener("click", startGame);
+startButton.addEventListener("click", startGame);
+answerA.addEventListener("click");
+answerB.addEventListener("click");
+answerC.addEventListener("click");
+answerD.addEventListener("click");
