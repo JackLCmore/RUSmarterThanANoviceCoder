@@ -1,74 +1,84 @@
 //variable declaritions
 var Q1 = {
-    answer1:"1",
-    answer2:"2",
-    answer3:"3",
-    answer4:"4"
+    question:"what is my favorite color?",
+    answer1:"blue",
+    answer2:"red",
+    answer3:"green",
+    answer4:"chartruse, chartroose?, chartruese?, how do you spell that word?"
 };
 var Q2 = {
+    question:"",
     answer1:"",
     answer2:"",
     answer3:"",
     answer4:""
 }
 var Q3 = {
+    question:"",
     answer1:"",
     answer2:"",
     answer3:"",
     answer4:""
 }
 var Q4 = {
+    question:"",
     answer1:"",
     answer2:"",
     answer3:"",
     answer4:""
 }
 var Q5 = {
+    question:"",
     answer1:"",
     answer2:"",
     answer3:"",
     answer4:""
 }
 var Q6 = {
+    question:"",
     answer1:"",
     answer2:"",
     answer3:"",
     answer4:""
 }
 var Q7 = {
+    question:"",
     answer1:"",
     answer2:"",
     answer3:"",
     answer4:""
 }
 var Q8 = {
+    question:"",
     answer1:"",
     answer2:"",
     answer3:"",
     answer4:""
 }
 var Q9 = {
+    question:"",
     answer1:"",
     answer2:"",
     answer3:"",
     answer4:""
 }
 var Q10 = {
+    question:"",
     answer1:"",
     answer2:"",
     answer3:"",
     answer4:""
 };
     //timeRemaining
-//querySelectors
-var startButton = document.querySelector("#button");
-var answerA = document.querySelector("#answer1");
-var answerB = document.querySelector("#answer2");
-var answerC = document.querySelector("#answer3");
-var answerD = document.querySelector("#answer4");
-var questionBlock = document.querySelector("#question");
-var timer = document.querySelector("#timer");
-var highScores = document.querySelector("#high score")
+//getElementByIds
+var startButton = document.getElementById("button");
+var answerA = document.getElementById("answer1");
+var answerB = document.getElementById("answer2");
+var answerC = document.getElementById("answer3");
+var answerD = document.getElementById("answer4");
+var questionBlock = document.getElementById("question");
+var timer = document.getElementById("timer");
+var highScores = document.getElementById("high score");
 function scoreDisplay(){
     alert("Your final score is: " + highScores);
 }
@@ -80,9 +90,26 @@ function playAgain() {
         return;
     }
 }
+function timerStart(){
+    timer.textContent = 90;
+    var count = setInterval(function(){
+    if(timer.textContent  > 0)
+        timer.textContent--;
+     else{
+            clearInterval(count);
+            endGame();
+        };
+    },50);
+}
 //function to start the game
 function startGame(){
-    timer.textContent = "90"
+    timerStart();
+    questionBlock.textContent = Q1.question;
+    answerA.textContent = Q1.answer1;
+    answerB.textContent = Q1.answer2;
+    answerC.textContent = Q1.answer3;
+    answerD.textContent = Q1.answer4;
+    console.log("i am working");
 
     //listen for button start
 
@@ -102,10 +129,10 @@ function startGame(){
 //Display of time remaining as score
 //end game
 function endGame(){
+    var finalScore = ""
+    finalScore = timer.textContent
+    highScores =finalScore
     //stop timer
-    if (timeLeft !== 0){
-
-    }
     //prompt for their initials
     //save score into high score
     //clear time
@@ -113,7 +140,8 @@ function endGame(){
     playAgain();
 }
 startButton.addEventListener("click", startGame);
-answerA.addEventListener("click");
-answerB.addEventListener("click");
-answerC.addEventListener("click");
-answerD.addEventListener("click");
+// answerA.addEventListener("click");
+// answerB.addEventListener("click");
+// answerC.addEventListener("click");
+// answerD.addEventListener("click");
+// startGame();
