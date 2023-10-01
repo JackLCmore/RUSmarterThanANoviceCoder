@@ -69,8 +69,6 @@ var Q10 = {
     answer4:"Ludophobia"
 };
 
-var questionArray = [Q1, Q2, Q3, Q4, Q5, Q6, Q7, Q8, Q9, Q10];
-
 var startButton = document.getElementById("start button");
 var answerA = document.getElementById("answer1");
 var answerB = document.getElementById("answer2");
@@ -104,6 +102,10 @@ function question2(){
     answerB.textContent = Q2.answer2;
     answerC.textContent = Q2.answer3;
     answerD.textContent = Q2.answer4;
+    buttonA.removeEventListener("click",wrongAnswer);
+    buttonB.removeEventListener("click",question2);
+    buttonC.removeEventListener("click",wrongAnswer);
+    buttonD.removeEventListener("click",wrongAnswer);
     buttonA.addEventListener("click",wrongAnswer);
     buttonB.addEventListener("click",wrongAnswer);
     buttonC.addEventListener("click",wrongAnswer);
@@ -115,6 +117,10 @@ function question3(){
     answerB.textContent = Q3.answer2;
     answerC.textContent = Q3.answer3;
     answerD.textContent = Q3.answer4;
+    buttonA.removeEventListener("click",wrongAnswer);
+    buttonB.removeEventListener("click",wrongAnswer);
+    buttonC.removeEventListener("click",wrongAnswer);
+    buttonD.removeEventListener("click",question3);
     buttonA.addEventListener("click",question4);
     buttonB.addEventListener("click",wrongAnswer);
     buttonC.addEventListener("click",wrongAnswer);
@@ -126,6 +132,10 @@ function question4(){
     answerB.textContent = Q4.answer2;
     answerC.textContent = Q4.answer3;
     answerD.textContent = Q4.answer4;
+    buttonA.removeEventListener("click",question4);
+    buttonB.removeEventListener("click",wrongAnswer);
+    buttonC.removeEventListener("click",wrongAnswer);
+    buttonD.removeEventListener("click",wrongAnswer);
     buttonA.addEventListener("click",question5);
     buttonB.addEventListener("click",wrongAnswer);
     buttonC.addEventListener("click",wrongAnswer);
@@ -137,6 +147,10 @@ function question5(){
     answerB.textContent = Q5.answer2;
     answerC.textContent = Q5.answer3;
     answerD.textContent = Q5.answer4;
+    buttonA.removeEventListener("click",question5);
+    buttonB.removeEventListener("click",wrongAnswer);
+    buttonC.removeEventListener("click",wrongAnswer);
+    buttonD.removeEventListener("click",wrongAnswer);
     buttonA.addEventListener("click",wrongAnswer);
     buttonB.addEventListener("click",question6);
     buttonC.addEventListener("click",wrongAnswer);
@@ -148,6 +162,10 @@ function question6(){
     answerB.textContent = Q6.answer2;
     answerC.textContent = Q6.answer3;
     answerD.textContent = Q6.answer4;
+    buttonA.removeEventListener("click",wrongAnswer);
+    buttonB.removeEventListener("click",question6);
+    buttonC.removeEventListener("click",wrongAnswer);
+    buttonD.removeEventListener("click",wrongAnswer);
     buttonA.addEventListener("click",question7);
     buttonB.addEventListener("click",wrongAnswer);
     buttonC.addEventListener("click",wrongAnswer);
@@ -159,6 +177,10 @@ function question7(){
     answerB.textContent = Q7.answer2;
     answerC.textContent = Q7.answer3;
     answerD.textContent = Q7.answer4;
+    buttonA.removeEventListener("click",question7);
+    buttonB.removeEventListener("click",wrongAnswer);
+    buttonC.removeEventListener("click",wrongAnswer);
+    buttonD.removeEventListener("click",wrongAnswer);
     buttonA.addEventListener("click",wrongAnswer);
     buttonB.addEventListener("click",wrongAnswer);
     buttonC.addEventListener("click",question8);
@@ -170,6 +192,10 @@ function question8(){
     answerB.textContent = Q8.answer2;
     answerC.textContent = Q8.answer3;
     answerD.textContent = Q8.answer4;
+    buttonA.removeEventListener("click",wrongAnswer);
+    buttonB.removeEventListener("click",wrongAnswer);
+    buttonC.removeEventListener("click",question8);
+    buttonD.removeEventListener("click",wrongAnswer);
     buttonA.addEventListener("click",wrongAnswer);
     buttonB.addEventListener("click",wrongAnswer);
     buttonC.addEventListener("click",wrongAnswer);
@@ -181,6 +207,10 @@ function question9(){
     answerB.textContent = Q9.answer2;
     answerC.textContent = Q9.answer3;
     answerD.textContent = Q9.answer4;
+    buttonA.removeEventListener("click",wrongAnswer);
+    buttonB.removeEventListener("click",wrongAnswer);
+    buttonC.removeEventListener("click",wrongAnswer);
+    buttonD.removeEventListener("click",question9);
     buttonA.addEventListener("click",question10);
     buttonB.addEventListener("click",wrongAnswer);
     buttonC.addEventListener("click",wrongAnswer);
@@ -192,6 +222,10 @@ function question10(){
     answerB.textContent = Q10.answer2;
     answerC.textContent = Q10.answer3;
     answerD.textContent = Q10.answer4;
+    buttonA.removeEventListener("click",question10);
+    buttonB.removeEventListener("click",wrongAnswer);
+    buttonC.removeEventListener("click",wrongAnswer);
+    buttonD.removeEventListener("click",wrongAnswer);
     buttonA.addEventListener("click",wrongAnswer);
     buttonB.addEventListener("click",endGame);
     buttonC.addEventListener("click",wrongAnswer);
@@ -214,44 +248,47 @@ function timerStart(){
     if(timer.textContent > 0)
         timer.textContent--;
      else{
-            clearInterval(count);
-            endGame();
+        clearInterval(count);
+        endGame();
         };
     },1000);
 }
 function wrongAnswer(){
-timer.textContent = timer.textContent - 5;
-if (answerA.textContent === Q1.answer1){
-    question2();
-}
-else if(answerA.textContent === Q2.answer1){
-    question3();
-}
-else if(answerA.textContent === Q3.answer1){
-    question4();
-}
-else if(answerA.textContent === Q4.answer1){
-    question5();
-}
-else if(answerA.textContent === Q5.answer1){
-    question6();
-}
-else if(answerA.textContent === Q6.answer1){
-    question7();
-}
-else if(answerA.textContent === Q7.answer1){
-    question8();
-}
-else if(answerA.textContent === Q8.answer1){
-    question9();
-}
-else if(answerA.textContent === Q9.answer1){
-    question10();
-}
-else if (answerA.textContent === Q10.answer1){
-    endGame();
-}
-}
+    timer.textContent = parseInt(timer.textContent) - 5;
+    nextQuestion();
+    }
+function nextQuestion(){
+    if(questionBlock.textContent === "What is the first letter of the alphabet?"){
+            question2();
+            }
+    else if(questionBlock.textContent === "What does the acronym D.O.M. stand for?"){
+            question3();
+            }
+    else if(questionBlock.textContent === "What is it called when using the terms 'if', 'else', and 'else if' in a javacript function?"){
+            question4();
+            }
+    else if(questionBlock.textContent === "Which statement reads 'A is not greater than B and A is equal to in type and value to C"){
+            question5();
+            }
+    else if(questionBlock.textContent === "What is the infamous cabbage merchant's catchphrase from the show Avatar: The Last Airbender?"){
+            question6();
+            }
+    else if(questionBlock.textContent === "What does the french term Balancer mean?"){
+            question7();
+            }
+    else if(questionBlock.textContent === "What is the airspeed velocity of an unladen swallow?"){
+            question8();
+            }
+    else if(questionBlock.textContent === "That last question was a doozy wasn't it?"){
+            question9();
+            }
+    else if(questionBlock.textContent === "Did you think this quiz was gonna be easy?"){
+            question10();
+            }
+    else if(questionBlock.textContent === "What is the scientific name for the fear of failure?"){
+            endGame();
+        }
+    }
 function startGame(){
     timerStart();
     question1();
