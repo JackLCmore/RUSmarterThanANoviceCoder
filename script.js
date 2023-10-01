@@ -1,4 +1,3 @@
-
 var Q1 = {
     question:"What is the first letter of the alphabet?",
     answer1:"C",
@@ -70,8 +69,6 @@ var Q10 = {
     answer4:"Ludophobia"
 };
 
-questionArry = [Q1, Q2, Q3, Q4, Q5, Q6, Q7, Q8, Q9, Q10]
-
 var startButton = document.getElementById("start button");
 var answerA = document.getElementById("answer1");
 var answerB = document.getElementById("answer2");
@@ -83,40 +80,29 @@ var buttonC = document.getElementById("buttonC");
 var buttonD = document.getElementById("buttonD");
 var questionBlock = document.getElementById("question");
 var timer = document.getElementById("timer");
-var highScores = document.getElementById("high score");
-function scoreDisplay(){
-    alert("Your final score is: " + timer.textContent);
-}
-function playAgain() {
-    if(confirm("Do you want to play again?")){
-        startGame();
-    }
-    else{
-        return;
-    }
-}
-function timerStart(){
-    timer.textContent = 90;
-    var count = setInterval(function(){
-    if(timer.textContent > 0)
-        timer.textContent--;
-     else{
-            clearInterval(count);
-            endGame();
-        };
-    },1000);
-}
-function wrongAnswer(){
-timer.textContent = timer.textContent - 5
-}
+var highScores = document.getElementById("highScore");
+var lastPlayer = document.getElementById("lastPlayer");
+var localScore = localStorage.getItem("localScore");
+var localHS = localStorage.getItem("localHS");
+
+// if(!localHSnull || !localScore){
+//     highScores.textContent = localHS + localScore;
+// }
+// else{
+//     localScore = 0;
+//     localHS = 0;
+//     localStorage.setItem("localScore", localScore);
+//     highScores.textContent = localHS + localScore;
+// }
+
 function question1(){
     questionBlock.textContent = Q1.question;
     answerA.textContent = Q1.answer1;
     answerB.textContent = Q1.answer2;
     answerC.textContent = Q1.answer3;
     answerD.textContent = Q1.answer4;
-    buttonA.addEventListener("click",question2);
-    buttonB.addEventListener("click",wrongAnswer);
+    buttonA.addEventListener("click",wrongAnswer);
+    buttonB.addEventListener("click",question2);
     buttonC.addEventListener("click",wrongAnswer);
     buttonD.addEventListener("click",wrongAnswer);
 }
@@ -126,10 +112,10 @@ function question2(){
     answerB.textContent = Q2.answer2;
     answerC.textContent = Q2.answer3;
     answerD.textContent = Q2.answer4;
-    buttonA.addEventListener("click",question3);
+    buttonA.addEventListener("click",wrongAnswer);
     buttonB.addEventListener("click",wrongAnswer);
     buttonC.addEventListener("click",wrongAnswer);
-    buttonD.addEventListener("click",wrongAnswer);
+    buttonD.addEventListener("click",question3);
 }
 function question3(){
     questionBlock.textContent = Q3.question;
@@ -159,8 +145,8 @@ function question5(){
     answerB.textContent = Q5.answer2;
     answerC.textContent = Q5.answer3;
     answerD.textContent = Q5.answer4;
-    buttonA.addEventListener("click",question6);
-    buttonB.addEventListener("click",wrongAnswer);
+    buttonA.addEventListener("click",wrongAnswer);
+    buttonB.addEventListener("click",question6);
     buttonC.addEventListener("click",wrongAnswer);
     buttonD.addEventListener("click",wrongAnswer);
 }
@@ -181,9 +167,9 @@ function question7(){
     answerB.textContent = Q7.answer2;
     answerC.textContent = Q7.answer3;
     answerD.textContent = Q7.answer4;
-    buttonA.addEventListener("click",question8);
+    buttonA.addEventListener("click",wrongAnswer);
     buttonB.addEventListener("click",wrongAnswer);
-    buttonC.addEventListener("click",wrongAnswer);
+    buttonC.addEventListener("click",question8);
     buttonD.addEventListener("click",wrongAnswer);
 }
 function question8(){
@@ -192,10 +178,10 @@ function question8(){
     answerB.textContent = Q8.answer2;
     answerC.textContent = Q8.answer3;
     answerD.textContent = Q8.answer4;
-    buttonA.addEventListener("click",question9);
+    buttonA.addEventListener("click",wrongAnswer);
     buttonB.addEventListener("click",wrongAnswer);
     buttonC.addEventListener("click",wrongAnswer);
-    buttonD.addEventListener("click",wrongAnswer);
+    buttonD.addEventListener("click",question9);
 }
 function question9(){
     questionBlock.textContent = Q9.question;
@@ -214,45 +200,66 @@ function question10(){
     answerB.textContent = Q10.answer2;
     answerC.textContent = Q10.answer3;
     answerD.textContent = Q10.answer4;
-    buttonA.addEventListener("click",endGame);
-    buttonB.addEventListener("click",wrongAnswer);
+    buttonA.addEventListener("click",wrongAnswer);
+    buttonB.addEventListener("click",endGame);
     buttonC.addEventListener("click",wrongAnswer);
     buttonD.addEventListener("click",wrongAnswer);
+}
+function scoreDisplay(){
+    alert("Your final score is: " + timer.textContent);
+    // localStorage.setItem("localScore") =timer.textContent
+}
+function playAgain() {
+    if(confirm("Do you want to play again?")){
+        startGame();
+    }
+    else{
+        return;
+    }
+}
+function timerStart(){
+    timer.textContent = 90;
+    var count = setInterval(function(){
+    if(timer.textContent > 0)
+        timer.textContent--;
+     else{
+            clearInterval(count);
+            endGame();
+        };
+    },1000);
+}
+function wrongAnswer(){
+timer.textContent = timer.textContent - 5
 }
 function startGame(){
     timerStart();
     question1();
     console.log("i am working");
 };
+function endGame(){
+    getInfo();
+    scoreDisplay();
+    playAgain();
+    localStorage.setItem("localScore",timer.textContent);
+}
 function getInfo (){
-    userInfo = prompt("What is your name?");
-    if(userInfo === null || userInfo === ''){
+    var userName = prompt("What is your name?");
+    if(userName === null || userName === ''){
         alert("no name detected, please try again")
         getInfo();
     }
+    localStorage.setItem("localHS",userName);
+    saveData();
 };
-//first question displays and corresponding answers
-    //carousel-box like array to keep track of what question you are on
-//use eventlisteners on buttons check for answers
-    //compare clicked button to what we have as correct answer
-    //if wrong display WRONG!!! and decrement an amount of time from timer
-    //if correct display CORRECT!!!
-    //in either case move onto next question
-    //if end of questions end game
-//repeat until timer hits 0 or run out of questions
-    //when our array of questions returns undefined or length-1 for index
-    //end game
-//Display of time remaining as score
-//end game
-function endGame(){
-    // highScores =finalScore;
-    getInfo();
-    //save score into high score
-    scoreDisplay();
-    playAgain();
-}
+function saveData(){
+    var userName = localHS;
+    var userScore = localScore;
+    if(!userName || ! userScore){
+        return;
+    }
+    lastPlayer.textContent = userName;
+    highScores.textContent = userScore;
+    
+};
 startButton.addEventListener("click", startGame);
-// answerA.addEventListener("click");
-// answerB.addEventListener("click");
-// answerC.addEventListener("click");
-// answerD.addEventListener("click");
+saveData();
