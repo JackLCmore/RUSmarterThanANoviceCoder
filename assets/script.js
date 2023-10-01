@@ -69,6 +69,8 @@ var Q10 = {
     answer4:"Ludophobia"
 };
 
+var questionArray = [Q1, Q2, Q3, Q4, Q5, Q6, Q7, Q8, Q9, Q10];
+
 var startButton = document.getElementById("start button");
 var answerA = document.getElementById("answer1");
 var answerB = document.getElementById("answer2");
@@ -84,16 +86,6 @@ var highScores = document.getElementById("highScore");
 var lastPlayer = document.getElementById("lastPlayer");
 var localScore = localStorage.getItem("localScore");
 var localHS = localStorage.getItem("localHS");
-
-// if(!localHSnull || !localScore){
-//     highScores.textContent = localHS + localScore;
-// }
-// else{
-//     localScore = 0;
-//     localHS = 0;
-//     localStorage.setItem("localScore", localScore);
-//     highScores.textContent = localHS + localScore;
-// }
 
 function question1(){
     questionBlock.textContent = Q1.question;
@@ -207,7 +199,6 @@ function question10(){
 }
 function scoreDisplay(){
     alert("Your final score is: " + timer.textContent);
-    // localStorage.setItem("localScore") =timer.textContent
 }
 function playAgain() {
     if(confirm("Do you want to play again?")){
@@ -229,7 +220,37 @@ function timerStart(){
     },1000);
 }
 function wrongAnswer(){
-timer.textContent = timer.textContent - 5
+timer.textContent = timer.textContent - 5;
+if (answerA.textContent === Q1.answer1){
+    question2();
+}
+else if(answerA.textContent === Q2.answer1){
+    question3();
+}
+else if(answerA.textContent === Q3.answer1){
+    question4();
+}
+else if(answerA.textContent === Q4.answer1){
+    question5();
+}
+else if(answerA.textContent === Q5.answer1){
+    question6();
+}
+else if(answerA.textContent === Q6.answer1){
+    question7();
+}
+else if(answerA.textContent === Q7.answer1){
+    question8();
+}
+else if(answerA.textContent === Q8.answer1){
+    question9();
+}
+else if(answerA.textContent === Q9.answer1){
+    question10();
+}
+else if (answerA.textContent === Q10.answer1){
+    endGame();
+}
 }
 function startGame(){
     timerStart();
