@@ -1,73 +1,73 @@
 
 var Q1 = {
-    question:"what is my favorite color?",
-    answer1:"blue",
-    answer2:"red",
-    answer3:"green",
-    answer4:"chartruse, chartroose?, chartruese?, how do you spell that word?"
+    question:"What is the first letter of the alphabet?",
+    answer1:"C",
+    answer2:"A",
+    answer3:"D",
+    answer4:"B"
 };
 var Q2 = {
-    question:"",
-    answer1:"",
-    answer2:"",
-    answer3:"",
-    answer4:""
+    question:"What does the acronym D.O.M. stand for?",
+    answer1:"Dunkin' on Mars",
+    answer2:"Dreaming of Meadows",
+    answer3:"Dominic Toretto",
+    answer4:"Document Object Model"
 }
 var Q3 = {
-    question:"",
-    answer1:"",
-    answer2:"",
-    answer3:"",
-    answer4:""
+    question:"What is it called when using the terms 'if', 'else', and 'else if' in a javacript function?",
+    answer1:"A Conditional Statement",
+    answer2:"A Logical Comparison",
+    answer3:"An Object Method",
+    answer4:"A Primitive Type"
 }
 var Q4 = {
-    question:"",
-    answer1:"",
-    answer2:"",
-    answer3:"",
-    answer4:""
+    question:"Which statement reads 'A is not greater than B and A is equal to in type and value to C",
+    answer1:"A !> B && A === C",
+    answer2:"A < !B || A === C",
+    answer3:"!A < B && A === C",
+    answer4:"A !> B || C === A"
 }
 var Q5 = {
-    question:"",
-    answer1:"",
-    answer2:"",
-    answer3:"",
-    answer4:""
+    question:"What is the infamous cabbage merchant's catchphrase from the show Avatar: The Last Airbender?",
+    answer1:"NOT THE CABBAGES",
+    answer2:"NOT MY CABBAGES!",
+    answer3:"ALL MY CABBAGES!",
+    answer4:"WHY MY CABBAGES!"
 }
 var Q6 = {
-    question:"",
-    answer1:"",
-    answer2:"",
-    answer3:"",
-    answer4:""
+    question:"What does the french term Balancer mean?",
+    answer1:"To give up, or to reveal",
+    answer2:"Country Bumpkin",
+    answer3:"Let it go",
+    answer4:"Same as above"
 }
 var Q7 = {
-    question:"",
-    answer1:"",
-    answer2:"",
-    answer3:"",
-    answer4:""
+    question:"What is the airspeed velocity of an unladen swallow?",
+    answer1:"roughly 21.6 miles per hour",
+    answer2:"roughly 23.2 miles per hour",
+    answer3:"roughly 20.1 miles per hour",
+    answer4:"roughly 29.3 miles per hour"
 }
 var Q8 = {
-    question:"",
-    answer1:"",
-    answer2:"",
-    answer3:"",
-    answer4:""
+    question:"That last question was a doozy wasn't it?",
+    answer1:"yes",
+    answer2:"yeah",
+    answer3:"mhm",
+    answer4:"yup"
 }
 var Q9 = {
-    question:"",
-    answer1:"",
-    answer2:"",
-    answer3:"",
-    answer4:""
+    question:"Did you think this quiz was gonna be easy?",
+    answer1:"this is the right answer",
+    answer2:"No! I'm the right answer!",
+    answer3:"the answer below this should say first instead of second",
+    answer4:"the second answer is the right answer.",
 }
 var Q10 = {
-    question:"",
-    answer1:"",
-    answer2:"",
-    answer3:"",
-    answer4:""
+    question:"What is the scientific name for the fear of failure?",
+    answer1:"Elevatophobia",
+    answer2:"Atychiphobia",
+    answer3:"Ommetaphobia",
+    answer4:"Ludophobia"
 };
 
 questionArry = [Q1, Q2, Q3, Q4, Q5, Q6, Q7, Q8, Q9, Q10]
