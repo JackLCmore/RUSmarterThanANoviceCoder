@@ -263,42 +263,40 @@ function wrongAnswer(){
     nextQuestion();
     }
 function nextQuestion(){
-    if(questionBlock.textContent === "What is the first letter of the alphabet?"){
+    if(questionBlock.textContent === Q1.question){
             question2();
             }
-    else if(questionBlock.textContent === "What does the acronym D.O.M. stand for?"){
+    else if(questionBlock.textContent === Q2.question){
             question3();
             }
-    else if(questionBlock.textContent === "What is it called when using the terms 'if', 'else', and 'else if' in a javacript function?"){
+    else if(questionBlock.textContent === Q3.question){
             question4();
             }
-    else if(questionBlock.textContent === "Which statement reads 'A is not greater than B and A is equal to in type and value to C"){
+    else if(questionBlock.textContent === Q4.question){
             question5();
             }
-    else if(questionBlock.textContent === "What is the infamous cabbage merchant's catchphrase from the show Avatar: The Last Airbender?"){
+    else if(questionBlock.textContent === Q5.question){
             question6();
             }
-    else if(questionBlock.textContent === "What does the french term Balancer mean?"){
+    else if(questionBlock.textContent === Q6.question){
             question7();
             }
-    else if(questionBlock.textContent === "What is the airspeed velocity of an unladen swallow?"){
+    else if(questionBlock.textContent === Q7.question){
             question8();
             }
-    else if(questionBlock.textContent === "That last question was a doozy wasn't it?"){
+    else if(questionBlock.textContent === Q8.question){
             question9();
             }
-    else if(questionBlock.textContent === "Did you think this quiz was gonna be easy?"){
+    else if(questionBlock.textContent === Q9.question){
             question10();
             }
-    else if(questionBlock.textContent === "What is the scientific name for the fear of failure?"){
+    else if(questionBlock.textContent === Q10.question){
             endGame();
         }
     }
 function startGame(){
     timerStart();
     question1();
-    // lastPlayer.textContent = localHS;
-    // highScores.textContent = localScore;
     console.log("i am working");
 };
 function endGame(){
@@ -313,16 +311,13 @@ function getInfo (){
         getInfo();
     }
     localStorage.setItem("localHS",userName);
-    // saveData();
 };
 function saveData(){
-    var userName = localHS;
-    var userScore = localScore;
-    if(!userName || !userScore){
+    if(!localHS || !localScore){
         return;
     }
-    lastPlayer.textContent = userName;
-    highScores.textContent = userScore;
+    lastPlayer.textContent = localHS;
+    highScores.textContent = localScore;
 };
 startButton.addEventListener("click", startGame);
 saveData();
