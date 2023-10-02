@@ -10,7 +10,7 @@
 
 ## Deployed Site
 
-[Visit the Deployed Site](https://jacklcmore.github.io/RUSmarterThanANoviceCoder/)
+[Visit the Deployed Site](/assets/images/pagess.png)(https://jacklcmore.github.io/RUSmarterThanANoviceCoder/)
 
 ## Purpose
 
