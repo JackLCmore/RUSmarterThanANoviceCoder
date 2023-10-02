@@ -91,6 +91,10 @@ function question1(){
     answerB.textContent = Q1.answer2;
     answerC.textContent = Q1.answer3;
     answerD.textContent = Q1.answer4;
+    buttonA.textContent = "A"
+    buttonB.textContent = "B"
+    buttonC.textContent = "C"
+    buttonD.textContent = "D"
     buttonA.addEventListener("click",wrongAnswer);
     buttonB.addEventListener("click",question2);
     buttonC.addEventListener("click",wrongAnswer);
@@ -233,6 +237,7 @@ function question10(){
 }
 function scoreDisplay(){
     alert("Your final score is: " + timer.textContent);
+    localStorage.setItem("localScore",timer.textContent);
 }
 function playAgain() {
     if(confirm("Do you want to play again?")){
@@ -292,13 +297,14 @@ function nextQuestion(){
 function startGame(){
     timerStart();
     question1();
+    // lastPlayer.textContent = localHS;
+    // highScores.textContent = localScore;
     console.log("i am working");
 };
 function endGame(){
     getInfo();
     scoreDisplay();
     playAgain();
-    localStorage.setItem("localScore",timer.textContent);
 }
 function getInfo (){
     var userName = prompt("What is your name?");
@@ -307,17 +313,16 @@ function getInfo (){
         getInfo();
     }
     localStorage.setItem("localHS",userName);
-    saveData();
+    // saveData();
 };
 function saveData(){
     var userName = localHS;
     var userScore = localScore;
-    if(!userName || ! userScore){
+    if(!userName || !userScore){
         return;
     }
     lastPlayer.textContent = userName;
     highScores.textContent = userScore;
-    
 };
 startButton.addEventListener("click", startGame);
 saveData();

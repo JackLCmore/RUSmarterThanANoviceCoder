@@ -1,9 +1,23 @@
 *{
     box-sizing: border-box;
+    font-family: cursive;
 }
 body{
     display: center;
     justify-content: center;
+    background-image: url("./images/notebook-background.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+section{
+    color: white;
+    border: 15px solid #3b1e05;
+    border-radius: 10px;
+    background-image: linear-gradient(darkgreen, #12960e , darkgreen);
+    margin-top: 5%;
+    margin-right: 25%;
+    margin-left: 25%;
 }
 button{
     display: center;
@@ -11,7 +25,10 @@ button{
     align-items: center;
 }
 h1{
-    border: 2px solid black;
+    background-image: linear-gradient(#f5da42, orange);
+    border: 1px solid black;
+    border-radius: 10px;
+    border-bottom: 8px dashed black;
     justify-content: center;
     display: center;
     text-align: center;
